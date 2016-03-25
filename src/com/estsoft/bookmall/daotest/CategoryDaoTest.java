@@ -25,7 +25,6 @@ public class CategoryDaoTest {
 
 		vo.setName( "역사" );
 		dao.insert( vo );
-
 	}
 	
 	public static void listTest() {

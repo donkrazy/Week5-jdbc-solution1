@@ -17,8 +17,8 @@ public class CategoryDao {
 	public CategoryDao(  DBConnection dbConnection ) {
 		this.dbConnection = dbConnection;
 	}
-	
-	public void insert( CategoryVo CategoryVo ) {
+
+	public void insert( CategoryVo categoryVo ) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -26,11 +26,11 @@ public class CategoryDao {
 			conn = dbConnection.getConnection();
 			
 			//Statement 준비
-			String sql = "insert into category values(  null, ? )";
+			String sql = "INSERT INTO category VALUES(  null, ? )";
 			pstmt = conn.prepareStatement( sql );
 			
 			// bind
-			pstmt.setString( 1, CategoryVo.getName() );
+			pstmt.setString( 1, categoryVo.getName() );
 			
 			// SQL 실행
 			pstmt.executeUpdate();
@@ -66,10 +66,10 @@ public class CategoryDao {
 				Long no = rs.getLong( 1 );
 				String name = rs.getString( 2 );
 				
-				CategoryVo CategoryVo = new CategoryVo();
-				CategoryVo.setNo( no );
-				CategoryVo.setName( name );
-				list.add( CategoryVo );
+				CategoryVo categoryVo = new CategoryVo();
+				categoryVo.setNo( no );
+				categoryVo.setName( name );
+				list.add( categoryVo );
 			}
 		} catch( SQLException ex ) {
 			System.out.println( "error : " + ex );
