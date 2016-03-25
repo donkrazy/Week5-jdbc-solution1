@@ -37,7 +37,8 @@ public class BookDao {
 			pstmt.executeUpdate();
 			
 		} catch( SQLException ex ) {
-			System.out.println( "SQL 오류:" + ex );
+			//System.out.println( "SQL 오류:" + ex );
+			ex.printStackTrace();
 		} finally {
 			// 자원정리(clean-up)
 			try {

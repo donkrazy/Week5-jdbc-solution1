@@ -26,7 +26,7 @@ public class BookDao {
 			conn = dbConnection.getConnection();
 			
 			//Statement 준비
-			String sql = "INSERT INTO book VALUES(  null, ?, ?, ? )";
+			String sql = "INSERT INTO book VALUES(  null, ?, ? )";
 			pstmt = conn.prepareStatement( sql );
 			
 			// bind

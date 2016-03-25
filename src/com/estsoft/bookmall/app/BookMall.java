@@ -2,8 +2,10 @@ package com.estsoft.bookmall.app;
 
 import java.util.List;
 
+import com.estsoft.bookmal.vo.BookVo;
 import com.estsoft.bookmal.vo.CategoryVo;
 import com.estsoft.bookmal.vo.MemberVo;
+import com.estsoft.bookmall.dao.BookDao;
 import com.estsoft.bookmall.dao.BookMallDBConnection;
 import com.estsoft.bookmall.dao.CategoryDao;
 import com.estsoft.bookmall.dao.MemberDao;
@@ -53,8 +55,24 @@ public class BookMall {
 		}
 		
 		// 5. BookDao의 서적(상품) 생성
-		// 6. BookDao의  서적(상품) 리스트
+		BookVo bookVo = new BookVo();
+		BookDao bookDao = new BookDao( new BookMallDBConnection() );
 
+		bookVo.setTitle( "Java의 신" );
+		bookVo.setCategoryNo( 1L );
+		bookDao.insert( bookVo );
+
+		bookVo.setTitle( "곰브리치 세계사" );
+		bookVo.setCategoryNo( 3L );
+		bookDao.insert( bookVo );
+		
+		// 6. BookDao의  서적(상품) 리스트
+		System.out.println( "****************************** 서적(상품) 리스트 ******************************" );
+		List<BookVo> listBookVo = bookDao.getList();
+		for( BookVo vo : listBookVo ) {
+			System.out.println( vo );
+		}
+		
 		// 7. CartDao의 장바구니 정보 생성
 		// 8. CartDao의  장바구니 내용 리스트
 
