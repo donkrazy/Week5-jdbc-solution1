@@ -1,4 +1,4 @@
-package com.estsoft.bookmall.dao;
+package com.estsoft.bookmal.vo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,7 +26,7 @@ public class BookDao {
 			conn = dbConnection.getConnection();
 			
 			//Statement 준비
-			String sql = "INSERT INTO book VALUES(  null, ?, ?, ? )";
+			String sql = "INSERT INTO book VALUES(  null, ?, ? )";
 			pstmt = conn.prepareStatement( sql );
 			
 			// bind
@@ -80,7 +80,8 @@ public class BookDao {
 				list.add( bookVo );
 			}
 		} catch( SQLException ex ) {
-			System.out.println( "error : " + ex );
+			//System.out.println( "error : " + ex );
+			ex.printStackTrace();
 		} finally {
 			try {
 				if( rs != null ) {
