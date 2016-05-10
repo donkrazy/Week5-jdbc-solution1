@@ -26,12 +26,13 @@ public class BookDao {
 			conn = dbConnection.getConnection();
 			
 			//Statement 준비
-			String sql = "INSERT INTO book VALUES(  null, ?, ? )";
+			String sql = "INSERT INTO book VALUES(  null, ?, ?, ? )";
 			pstmt = conn.prepareStatement( sql );
 			
 			// bind
 			pstmt.setString( 1, bookVo.getTitle() );
 			pstmt.setLong( 2, bookVo.getCategoryNo() );
+			pstmt.setLong(3,  bookVo.getPrice() );
 			
 			// SQL 실행
 			pstmt.executeUpdate();

@@ -3,8 +3,11 @@ package com.estsoft.bookmal.vo;
 public class BookVo {
 	private Long no;
 	private String title;
+	private Integer price;
+	
 	private Long categoryNo;
 	private String categoryName;
+	
 	public Long getNo() {
 		return no;
 	}
@@ -16,6 +19,12 @@ public class BookVo {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 	public Long getCategoryNo() {
 		return categoryNo;
@@ -29,10 +38,9 @@ public class BookVo {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-
 	@Override
 	public String toString() {
-		return "BookVo [no=" + no + ", title=" + title + ", categoryNo=" + categoryNo + ", categoryName=" + categoryName
-				+ "]";
+		return "BookVo [no=" + no + ", title=" + title + ", price=" + price + ", categoryNo=" + categoryNo
+				+ ", categoryName=" + categoryName + "]";
 	}
 }
